@@ -136,46 +136,23 @@ namespace Pra.Interfaces.WPF
             StringBuilder stringBuilder = new StringBuilder();
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-               
-                if (powerableItem is Television)
-                {
-                    if (powerableItem.IsOn)
-                        stringBuilder.Append($"TV leefkamer lag al aan en blijft aan\n");
-                    else
-                    {
-                        powerableItem.PowerOn();
-                        lblTVLivingRoom.Content = "AAN";
-                        lblTVLivingRoom.Background = Brushes.LightGreen;
-                        stringBuilder.Append($"TV leefkamer werd ingeschakeld\n");
 
-                    }
-                }
-                if (powerableItem is Radio)
-                {
-                    if (powerableItem.IsOn)
-                        stringBuilder.Append($"Radio keuken lag al aan en blijft aan\n");
-                    else
-                    {
-                        powerableItem.PowerOn();
-                        lblRadioKitchen.Content = "AAN";
-                        lblRadioKitchen.Background = Brushes.LightGreen;
-                        stringBuilder.Append($"Radio keuken werd ingeschakeld\n");
+                Label label = lblSmartLampHallway;
+                if(powerableItem is Television) label = lblTVLivingRoom;
+                if(powerableItem is Radio) label = lblRadioKitchen;
 
-                    }
-                }
-                if (powerableItem is SmartLamp)
+                if (powerableItem.IsOn)
                 {
-                    if (powerableItem.IsOn)
-                        stringBuilder.Append($"Lamp gang lag al aan en blijft aan\n");
-                    else
-                    {
-                        powerableItem.PowerOn();
-                        lblSmartLampHallway.Content = "AAN";
-                        lblSmartLampHallway.Background = Brushes.LightGreen;
-                        stringBuilder.Append($"Lamp gang werd ingeschakeld\n");
-
-                    }
+                    stringBuilder.Append($"{powerableItem} lag al aan en blijft aan\n");
                 }
+                else
+                {
+                    powerableItem.PowerOn();
+                    label.Content = "AAN";
+                    label.Background = Brushes.LightGreen;
+                    stringBuilder.Append($"{powerableItem} werd ingeschakeld\n");
+                }
+
             }
 
             tbkFeedback.Text = stringBuilder.ToString();
@@ -187,44 +164,20 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                if (powerableItem is Television)
-                {
-                    if (!powerableItem.IsOn)
-                        stringBuilder.Append($"TV living was reeds uitgeschakeld\n");
-                    else
-                    {
-                        powerableItem.PowerOff();
-                        lblTVLivingRoom.Content = "UIT";
-                        lblTVLivingRoom.Background = Brushes.Red;
-                        stringBuilder.Append($"TV living werd uitgeschakeld\n");
 
-                    }
-                }
-                if (powerableItem is Radio)
-                {
-                    if (!powerableItem.IsOn)
-                        stringBuilder.Append($"Radio keuken was reeds uitgeschakeld\n");
-                    else
-                    {
-                        powerableItem.PowerOff();
-                        lblRadioKitchen.Content = "UIT";
-                        lblRadioKitchen.Background = Brushes.Red;
-                        stringBuilder.Append($"Radio keuken werd uitgeschakeld\n");
+                Label label = lblSmartLampHallway;
+                if (powerableItem is Television) label = lblTVLivingRoom;
+                if (powerableItem is Radio) label = lblRadioKitchen;
 
-                    }
-                }
-                if (powerableItem is SmartLamp)
+                if (!powerableItem.IsOn)
+                    stringBuilder.Append($"{powerableItem} was reeds uitgeschakeld\n");
+                else
                 {
-                    if (!powerableItem.IsOn)
-                        stringBuilder.Append($"Lamp gang was reeds uitgeschakeld\n");
-                    else
-                    {
-                        powerableItem.PowerOff();
-                        lblSmartLampHallway.Content = "UIT";
-                        lblSmartLampHallway.Background = Brushes.Red;
-                        stringBuilder.Append($"Lamp gang werd uitgeschakeld\n");
+                    powerableItem.PowerOff();
+                    label.Content = "UIT";
+                    label.Background = Brushes.Red;
+                    stringBuilder.Append($"{powerableItem} werd uitgeschakeld\n");
 
-                    }
                 }
             }
 
