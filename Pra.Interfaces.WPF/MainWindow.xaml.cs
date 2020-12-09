@@ -190,39 +190,21 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                ElectricalAppliance electricalAppliance = (ElectricalAppliance)powerableItem;
-
-                if (!powerableItem.IsOn && electricalAppliance is IVolumeChangeable)
+                if (powerableItem is IVolumeChangeable volumeChangeable)
                 {
-                    if (electricalAppliance is Television)
+                    if (!powerableItem.IsOn)
                     {
-                        stringBuilder.AppendLine($"TV {electricalAppliance.Room} is uitgeschakeld en wordt niet gewijzigd");
+                        stringBuilder.AppendLine($"{powerableItem} is uitgeschakeld en wordt niet gewijzigd");
                     }
-                    if (electricalAppliance is Radio)
+                    else
                     {
-                        stringBuilder.AppendLine($"Radio {electricalAppliance.Room} is uitgeschakeld en wordt niet gewijzigd");
-                    }
-                }
-                if (powerableItem.IsOn && electricalAppliance is IVolumeChangeable)
-                {
-                    IVolumeChangeable volumeChangeableItem = (IVolumeChangeable)electricalAppliance;
-                    if (electricalAppliance is Television)
-                    {
-                        stringBuilder.AppendLine($"TV {electricalAppliance.Room} : ");
-                        stringBuilder.Append($"\tVolume was: {volumeChangeableItem.CurrentVolume}");
-                        volumeChangeableItem.VolumeUp();
-                        stringBuilder.AppendLine($"\tVolume is verhoogd tot : {volumeChangeableItem.CurrentVolume}");
-                        lblTVLivingRoomVolume.Content = volumeChangeableItem.CurrentVolume;
-                    }
-                    if (electricalAppliance is Radio)
-                    {
-                        stringBuilder.AppendLine($"Radio {electricalAppliance.Room} : ");
-                        stringBuilder.Append($"\tVolume was: {volumeChangeableItem.CurrentVolume}");
-                        volumeChangeableItem.VolumeUp();
-                        stringBuilder.AppendLine($"\tVolume is verhoogd tot: {volumeChangeableItem.CurrentVolume}");
-                        lblRadioKitchenVolume.Content = volumeChangeableItem.CurrentVolume;
-                    }
+                        stringBuilder.AppendLine($"{volumeChangeable}: ");
+                        stringBuilder.Append($"\tVolume was: {volumeChangeable.CurrentVolume}");
+                        volumeChangeable.VolumeUp();
+                        stringBuilder.AppendLine($"\tVolume is verhoogd tot: {volumeChangeable.CurrentVolume}");
 
+                        UpdateVolumeLabel(volumeChangeable);
+                    }
                 }
 
             }
@@ -236,44 +218,32 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                ElectricalAppliance electricalAppliance = (ElectricalAppliance)powerableItem;
-
-                if (!powerableItem.IsOn && electricalAppliance is IVolumeChangeable)
+                if(powerableItem is IVolumeChangeable volumeChangeable)
                 {
-                    if (electricalAppliance is Television)
+                    if (!powerableItem.IsOn)
                     {
-                        stringBuilder.AppendLine($"TV {electricalAppliance.Room} is uitgeschakeld en wordt niet gewijzigd");
+                        stringBuilder.AppendLine($"{powerableItem} is uitgeschakeld en wordt niet gewijzigd");
                     }
-                    if (electricalAppliance is Radio)
+                    else 
                     {
-                        stringBuilder.AppendLine($"Radio {electricalAppliance.Room} is uitgeschakeld en wordt niet gewijzigd");
-                    }
-                }
-                if (powerableItem.IsOn && electricalAppliance is IVolumeChangeable)
-                {
-                    IVolumeChangeable volumeChangeableItem = (IVolumeChangeable)electricalAppliance;
-                    if (electricalAppliance is Television)
-                    {
-                        stringBuilder.AppendLine($"TV {electricalAppliance.Room} : ");
-                        stringBuilder.Append($"\tVolume was: {volumeChangeableItem.CurrentVolume}");
-                        volumeChangeableItem.VolumeDown();
-                        stringBuilder.AppendLine($"\tVolume is verlaagd tot : {volumeChangeableItem.CurrentVolume}");
-                        lblTVLivingRoomVolume.Content = volumeChangeableItem.CurrentVolume;
-                    }
-                    if (electricalAppliance is Radio)
-                    {
-                        stringBuilder.AppendLine($"Radio {electricalAppliance.Room} : ");
-                        stringBuilder.Append($"\tVolume was: {volumeChangeableItem.CurrentVolume}");
-                        volumeChangeableItem.VolumeDown();
-                        stringBuilder.AppendLine($"\tVolume is verlaagd tot: {volumeChangeableItem.CurrentVolume}");
-                        lblRadioKitchenVolume.Content = volumeChangeableItem.CurrentVolume;
-                    }
+                        stringBuilder.AppendLine($"{volumeChangeable}: ");
+                        stringBuilder.Append($"\tVolume was: {volumeChangeable.CurrentVolume}");
+                        volumeChangeable.VolumeDown();
+                        stringBuilder.AppendLine($"\tVolume is verlaagd tot: {volumeChangeable.CurrentVolume}");
 
+                        UpdateVolumeLabel(volumeChangeable);
+                    }
                 }
 
             }
 
             tbkFeedback.Text = stringBuilder.ToString();
+        }
+
+        private void UpdateVolumeLabel(IVolumeChangeable item)
+        {
+            Label volumeLabel = item is Television ? lblTVLivingRoomVolume : lblRadioKitchenVolume;
+            volumeLabel.Content = item.CurrentVolume;
         }
 
         private void BtnCheckConnections_Click(object sender, RoutedEventArgs e)
