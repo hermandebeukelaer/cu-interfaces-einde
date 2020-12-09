@@ -5,44 +5,24 @@ using Pra.Interfaces.CORE.Interfaces;
 
 namespace Pra.Interfaces.CORE.Classes
 {
-    public class Radio : ElectricalAppliance, IVolumeChangeable, IConnectionCheckable
+    public class Radio : VolumeChangeableAppliance, IConnectionCheckable
     {
         static readonly Random rnd = new Random();
 
-        public int CurrentVolume { get; private set; } = 50;
-
         public Radio(string room) : base(room)
         {
-        }
-        
-        public void VolumeUp()
-        {
-            CurrentVolume += 10;
-            if (CurrentVolume > 100)
-            {
-                CurrentVolume = 100;
-            }
-        }
-
-        public void VolumeDown()
-        {
-            CurrentVolume -= 10;
-            if (CurrentVolume < 0)
-            {
-                CurrentVolume = 0;
-            }
         }
 
         public string CheckBroadcastConnection()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine($"=========== Testing {this.GetType().Name} {Room} ===========");
+            stringBuilder.AppendLine($"=========== Testing {GetType().Name} {Room} ===========");
             stringBuilder.AppendLine("Is antenna extended? Checking antenna...");
             stringBuilder.AppendLine($"Antenna extended test returns {IsAntennaExtended()}");
 
             stringBuilder.AppendLine("Is FM working? Checking FM...");
             stringBuilder.AppendLine($"FM working test returns {IsFmWorking()}");
-            stringBuilder.AppendLine($"---------- End of test {this.GetType().Name} {Room} ---------- {Environment.NewLine}");
+            stringBuilder.AppendLine($"---------- End of test {GetType().Name} {Room} ---------- {Environment.NewLine}");
 
             return stringBuilder.ToString();
         }
