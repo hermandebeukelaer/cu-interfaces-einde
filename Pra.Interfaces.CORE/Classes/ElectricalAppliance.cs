@@ -6,7 +6,7 @@ namespace Pra.Interfaces.CORE.Classes
 {
     public abstract class ElectricalAppliance
     {
-        public string Room { get; private set; }
+        public string Room { get;}
 
         public ElectricalAppliance(string room)
         {

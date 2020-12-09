@@ -7,9 +7,9 @@ namespace Pra.Interfaces.CORE.Classes
 {
     public class Television : ElectricalAppliance, IPowerable, IVolumeChangeable, IConnectionCheckable
     {
-        static Random rnd = new Random();
+        static readonly Random rnd = new Random();
 
-        public bool IsOn { get; set; }
+        public bool IsOn { get; private set; }
         public int CurrentVolume { get; private set; } = 50;
 
         public Television(string room) : base(room)

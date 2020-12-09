@@ -144,7 +144,7 @@ namespace Pra.Interfaces.WPF
                         stringBuilder.Append($"TV leefkamer lag al aan en blijft aan\n");
                     else
                     {
-                        powerableItem.IsOn = true;
+                        powerableItem.PowerOn();
                         lblTVLivingRoom.Content = "AAN";
                         lblTVLivingRoom.Background = Brushes.LightGreen;
                         stringBuilder.Append($"TV leefkamer werd ingeschakeld\n");
@@ -157,7 +157,7 @@ namespace Pra.Interfaces.WPF
                         stringBuilder.Append($"Radio keuken lag al aan en blijft aan\n");
                     else
                     {
-                        powerableItem.IsOn = true;
+                        powerableItem.PowerOn();
                         lblRadioKitchen.Content = "AAN";
                         lblRadioKitchen.Background = Brushes.LightGreen;
                         stringBuilder.Append($"Radio keuken werd ingeschakeld\n");
@@ -170,7 +170,7 @@ namespace Pra.Interfaces.WPF
                         stringBuilder.Append($"Lamp gang lag al aan en blijft aan\n");
                     else
                     {
-                        powerableItem.IsOn = true;
+                        powerableItem.PowerOn();
                         lblSmartLampHallway.Content = "AAN";
                         lblSmartLampHallway.Background = Brushes.LightGreen;
                         stringBuilder.Append($"Lamp gang werd ingeschakeld\n");
@@ -194,7 +194,7 @@ namespace Pra.Interfaces.WPF
                         stringBuilder.Append($"TV living was reeds uitgeschakeld\n");
                     else
                     {
-                        powerableItem.IsOn = false;
+                        powerableItem.PowerOff();
                         lblTVLivingRoom.Content = "UIT";
                         lblTVLivingRoom.Background = Brushes.Red;
                         stringBuilder.Append($"TV living werd uitgeschakeld\n");
@@ -207,7 +207,7 @@ namespace Pra.Interfaces.WPF
                         stringBuilder.Append($"Radio keuken was reeds uitgeschakeld\n");
                     else
                     {
-                        powerableItem.IsOn = false;
+                        powerableItem.PowerOff();
                         lblRadioKitchen.Content = "UIT";
                         lblRadioKitchen.Background = Brushes.Red;
                         stringBuilder.Append($"Radio keuken werd uitgeschakeld\n");
@@ -220,7 +220,7 @@ namespace Pra.Interfaces.WPF
                         stringBuilder.Append($"Lamp gang was reeds uitgeschakeld\n");
                     else
                     {
-                        powerableItem.IsOn = false;
+                        powerableItem.PowerOff();
                         lblSmartLampHallway.Content = "UIT";
                         lblSmartLampHallway.Background = Brushes.Red;
                         stringBuilder.Append($"Lamp gang werd uitgeschakeld\n");

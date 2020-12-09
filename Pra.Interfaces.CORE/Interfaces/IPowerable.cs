@@ -6,7 +6,7 @@ namespace Pra.Interfaces.CORE.Interfaces
 {
     public interface IPowerable
     {
-        bool IsOn { get; set; }
+        bool IsOn { get; }
 
         string PowerOn();
         string PowerOff();
