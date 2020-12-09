@@ -184,7 +184,7 @@ namespace Pra.Interfaces.WPF
             tbkFeedback.Text = stringBuilder.ToString();
         }
 
-        private void BtnAllVolumeUpn_Click(object sender, RoutedEventArgs e)
+        private void BtnAllVolumeUp_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder stringBuilder = new StringBuilder();
 
