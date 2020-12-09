@@ -29,7 +29,6 @@ namespace Pra.Interfaces.WPF
         SmartLamp lampHallway;
         List<ElectricalAppliance> electricalAppliances;
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -52,7 +51,7 @@ namespace Pra.Interfaces.WPF
             
         }
 
-        private void btnTVLivingRoomPower_Click(object sender, RoutedEventArgs e)
+        private void BtnTVLivingRoomPower_Click(object sender, RoutedEventArgs e)
         {
             if (tvLivingRoom.IsOn)
             {
@@ -66,7 +65,7 @@ namespace Pra.Interfaces.WPF
             }
         }
 
-        private void btnSmartLampHallwayPower_Click(object sender, RoutedEventArgs e)
+        private void BtnSmartLampHallwayPower_Click(object sender, RoutedEventArgs e)
         {
             if (lampHallway.IsOn)
             {
@@ -80,7 +79,7 @@ namespace Pra.Interfaces.WPF
             }
         }
 
-        private void btnRadioKitchenPower_Click(object sender, RoutedEventArgs e)
+        private void BtnRadioKitchenPower_Click(object sender, RoutedEventArgs e)
         {
             if (radioKitchen.IsOn)
             {
@@ -94,7 +93,7 @@ namespace Pra.Interfaces.WPF
             }
         }
 
-        private void btnTVLivingRoomVolumeDown_Click(object sender, RoutedEventArgs e)
+        private void BtnTVLivingRoomVolumeDown_Click(object sender, RoutedEventArgs e)
         {
             if (tvLivingRoom.IsOn)
             {
@@ -103,7 +102,7 @@ namespace Pra.Interfaces.WPF
             }
         }
 
-        private void btnTVLivingRoomVolumeUp_Click(object sender, RoutedEventArgs e)
+        private void BtnTVLivingRoomVolumeUp_Click(object sender, RoutedEventArgs e)
         {
             if (tvLivingRoom.IsOn)
             {
@@ -112,7 +111,7 @@ namespace Pra.Interfaces.WPF
             }
         }
 
-        private void btnRadioKitchenVolumeDown_Click(object sender, RoutedEventArgs e)
+        private void BtnRadioKitchenVolumeDown_Click(object sender, RoutedEventArgs e)
         {
             if (radioKitchen.IsOn)
             {
@@ -121,7 +120,7 @@ namespace Pra.Interfaces.WPF
             }
         }
 
-        private void btnRadioKitchenVolumeUp_Click(object sender, RoutedEventArgs e)
+        private void BtnRadioKitchenVolumeUp_Click(object sender, RoutedEventArgs e)
         {
             if (radioKitchen.IsOn)
             {
@@ -131,7 +130,7 @@ namespace Pra.Interfaces.WPF
         }
 
 
-        private void btnStartAll_Click(object sender, RoutedEventArgs e)
+        private void BtnStartAll_Click(object sender, RoutedEventArgs e)
         {
             
             StringBuilder stringBuilder = new StringBuilder();
@@ -182,7 +181,7 @@ namespace Pra.Interfaces.WPF
             tbkFeedback.Text = stringBuilder.ToString();
         }
 
-        private void btnStopAll_Click(object sender, RoutedEventArgs e)
+        private void BtnStopAll_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -232,7 +231,7 @@ namespace Pra.Interfaces.WPF
             tbkFeedback.Text = stringBuilder.ToString();
         }
 
-        private void btnAllVolumeUpn_Click(object sender, RoutedEventArgs e)
+        private void BtnAllVolumeUpn_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -278,7 +277,7 @@ namespace Pra.Interfaces.WPF
             tbkFeedback.Text = stringBuilder.ToString();
         }
 
-        private void btnAllVolumeDown_Click(object sender, RoutedEventArgs e)
+        private void BtnAllVolumeDown_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -324,7 +323,7 @@ namespace Pra.Interfaces.WPF
             tbkFeedback.Text = stringBuilder.ToString();
         }
 
-        private void btnCheckConnections_Click(object sender, RoutedEventArgs e)
+        private void BtnCheckConnections_Click(object sender, RoutedEventArgs e)
         {
             List<IConnectionCheckable> connectionChecks = new List<IConnectionCheckable>
             {
@@ -334,7 +333,7 @@ namespace Pra.Interfaces.WPF
                 new Radio("living"),
                 new Television("living"),
                 new Television("slaapkamer"),
-                new Radio("wc"),
+                new Radio("wc")
             };
 
             tbkFeedback.Text = "";

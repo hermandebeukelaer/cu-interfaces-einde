@@ -7,23 +7,23 @@
         mc:Ignorable="d"
         Title="Programming Advanced - Interfaces" Height="798" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <Button x:Name="btnTVLivingRoomPower" Content="TV Woonkamer Power" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="200" Click="btnTVLivingRoomPower_Click"/>
+        <Button x:Name="btnTVLivingRoomPower" Content="TV Woonkamer Power" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="200" Click="BtnTVLivingRoomPower_Click"/>
         <Label x:Name="lblTVLivingRoom" Content="TV is uit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnSmartLampHallwayPower" Content="Lamp gang Power" HorizontalAlignment="Left" Margin="480,88,0,0" VerticalAlignment="Top" Width="200" Click="btnSmartLampHallwayPower_Click"/>
+        <Button x:Name="btnSmartLampHallwayPower" Content="Lamp gang Power" HorizontalAlignment="Left" Margin="480,88,0,0" VerticalAlignment="Top" Width="200" Click="BtnSmartLampHallwayPower_Click"/>
         <Label x:Name="lblSmartLampHallway" Content="Lamp gang is uit" HorizontalAlignment="Left" Margin="480,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnRadioKitchenPower" Content="Radio Keuken Power" HorizontalAlignment="Left" Margin="242,88,0,0" VerticalAlignment="Top" Width="200" Click="btnRadioKitchenPower_Click" />
+        <Button x:Name="btnRadioKitchenPower" Content="Radio Keuken Power" HorizontalAlignment="Left" Margin="242,88,0,0" VerticalAlignment="Top" Width="200" Click="BtnRadioKitchenPower_Click" />
         <Label x:Name="lblRadioKitchen" Content="Radio is uit" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnTVLivingRoomVolumeDown" Content="Volume down" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="80" Click="btnTVLivingRoomVolumeDown_Click"/>
-        <Button x:Name="btnTVLivingRoomVolumeUp" Content="Volume up" HorizontalAlignment="Left" Margin="130,113,0,0" VerticalAlignment="Top" Width="80" Click="btnTVLivingRoomVolumeUp_Click"/>
-        <Button x:Name="btnRadioKitchenVolumeDown" Content="Volume down" HorizontalAlignment="Left" Margin="242,113,0,0" VerticalAlignment="Top" Width="80" Click="btnRadioKitchenVolumeDown_Click"/>
-        <Button x:Name="btnRadioKitchenVolumeUp" Content="Volume up" HorizontalAlignment="Left" Margin="362,113,0,0" VerticalAlignment="Top" Width="80" Click="btnRadioKitchenVolumeUp_Click"/>
+        <Button x:Name="btnTVLivingRoomVolumeDown" Content="Volume down" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="80" Click="BtnTVLivingRoomVolumeDown_Click"/>
+        <Button x:Name="btnTVLivingRoomVolumeUp" Content="Volume up" HorizontalAlignment="Left" Margin="130,113,0,0" VerticalAlignment="Top" Width="80" Click="BtnTVLivingRoomVolumeUp_Click"/>
+        <Button x:Name="btnRadioKitchenVolumeDown" Content="Volume down" HorizontalAlignment="Left" Margin="242,113,0,0" VerticalAlignment="Top" Width="80" Click="BtnRadioKitchenVolumeDown_Click"/>
+        <Button x:Name="btnRadioKitchenVolumeUp" Content="Volume up" HorizontalAlignment="Left" Margin="362,113,0,0" VerticalAlignment="Top" Width="80" Click="BtnRadioKitchenVolumeUp_Click"/>
         <Label x:Name="lblTVLivingRoomVolume" Content="0" HorizontalAlignment="Left" Margin="90,110,0,0" VerticalAlignment="Top" Width="40" HorizontalContentAlignment="Center"/>
         <Label x:Name="lblRadioKitchenVolume" Content="0" HorizontalAlignment="Left" Margin="322,110,0,0" VerticalAlignment="Top" Width="40" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btnStartAll" Content="Power ON all" HorizontalAlignment="Left" Height="34" Margin="10,171,0,0" VerticalAlignment="Top" Width="200" Click="btnStartAll_Click"/>
-        <Button x:Name="btnStopAll" Content="Power OFF all" HorizontalAlignment="Left" Height="34" Margin="221,171,0,0" VerticalAlignment="Top" Width="200" Click="btnStopAll_Click"/>
-        <Button x:Name="btnAllVolumeUp" Content="All volume up" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="200" Click="btnAllVolumeUpn_Click" Height="38" />
-        <Button x:Name="btnAllVolumeDown" Content="All volumes down" HorizontalAlignment="Left" Margin="221,210,0,0" VerticalAlignment="Top" Width="200" Click="btnAllVolumeDown_Click" Height="38" />
-        <Button x:Name="btnCheckConnections" Content="Check connections" HorizontalAlignment="Left" Margin="480,171,0,0" VerticalAlignment="Top" Width="200" Click="btnCheckConnections_Click"/>
+        <Button x:Name="btnStartAll" Content="Power ON all" HorizontalAlignment="Left" Height="34" Margin="10,171,0,0" VerticalAlignment="Top" Width="200" Click="BtnStartAll_Click"/>
+        <Button x:Name="btnStopAll" Content="Power OFF all" HorizontalAlignment="Left" Height="34" Margin="221,171,0,0" VerticalAlignment="Top" Width="200" Click="BtnStopAll_Click"/>
+        <Button x:Name="btnAllVolumeUp" Content="All volume up" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="200" Click="BtnAllVolumeUpn_Click" Height="38" />
+        <Button x:Name="btnAllVolumeDown" Content="All volumes down" HorizontalAlignment="Left" Margin="221,210,0,0" VerticalAlignment="Top" Width="200" Click="BtnAllVolumeDown_Click" Height="38" />
+        <Button x:Name="btnCheckConnections" Content="Check connections" HorizontalAlignment="Left" Margin="480,171,0,0" VerticalAlignment="Top" Width="200" Click="BtnCheckConnections_Click"/>
         <ScrollViewer HorizontalAlignment="Left" Height="504" Margin="10,253,0,0" VerticalAlignment="Top" Width="772">
             <TextBlock x:Name="tbkFeedback" TextWrapping="Wrap" Text="" Background="#FFF7FEFF"/>
         </ScrollViewer>
