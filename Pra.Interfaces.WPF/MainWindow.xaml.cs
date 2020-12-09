@@ -46,6 +46,18 @@ namespace Pra.Interfaces.WPF
             UpdatePowerLabel(item, text, Brushes.Red);
         }
 
+        private void TogglePower(IPowerable item)
+        {
+            if (item.IsOn)
+            {
+                PowerOff(item);
+            }
+            else
+            {
+                PowerOn(item);
+            }
+        }
+
         private void UpdatePowerLabel(IPowerable item, string text, Brush color)
         {
             Label label = lblSmartLampHallway;
@@ -82,38 +94,17 @@ namespace Pra.Interfaces.WPF
 
         private void BtnTVLivingRoomPower_Click(object sender, RoutedEventArgs e)
         {
-            if (tvLivingRoom.IsOn)
-            {
-                PowerOff(tvLivingRoom);
-            }
-            else
-            {
-                PowerOn(tvLivingRoom);
-            }
+            TogglePower(tvLivingRoom);
         }
 
         private void BtnSmartLampHallwayPower_Click(object sender, RoutedEventArgs e)
         {
-            if (lampHallway.IsOn)
-            {
-                PowerOff(lampHallway);
-            }
-            else
-            {
-                PowerOn(lampHallway);
-            }
+            TogglePower(lampHallway);
         }
 
         private void BtnRadioKitchenPower_Click(object sender, RoutedEventArgs e)
         {
-            if (radioKitchen.IsOn)
-            {
-                PowerOff(radioKitchen);
-            }
-            else
-            {
-                PowerOn(radioKitchen);
-            }
+            TogglePower(radioKitchen);
         }
 
         private void BtnTVLivingRoomVolumeDown_Click(object sender, RoutedEventArgs e)
