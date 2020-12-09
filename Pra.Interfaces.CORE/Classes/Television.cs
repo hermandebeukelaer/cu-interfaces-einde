@@ -5,27 +5,13 @@ using Pra.Interfaces.CORE.Interfaces;
 
 namespace Pra.Interfaces.CORE.Classes
 {
-    public class Television : ElectricalAppliance, IPowerable, IVolumeChangeable, IConnectionCheckable
+    public class Television : ElectricalAppliance, IVolumeChangeable, IConnectionCheckable
     {
         static readonly Random rnd = new Random();
-
-        public bool IsOn { get; private set; }
         public int CurrentVolume { get; private set; } = 50;
 
         public Television(string room) : base(room)
         {
-        }
-
-        public string PowerOff()
-        {
-            IsOn = false;
-            return $"TV {Room} is uit";
-        }
-
-        public string PowerOn()
-        {
-            IsOn = true;
-            return $"TV {Room} is aan";
         }
 
         public void VolumeUp()
@@ -79,6 +65,10 @@ namespace Pra.Interfaces.CORE.Classes
             int trueOrFalse = rnd.Next(2);
 
             return Convert.ToBoolean(trueOrFalse);
+        }
+        public override string ToString()
+        {
+            return $"Televisie {Room}";
         }
     }
 }

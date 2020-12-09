@@ -5,24 +5,15 @@ using Pra.Interfaces.CORE.Interfaces;
 
 namespace Pra.Interfaces.CORE.Classes
 {
-    public class SmartLamp : ElectricalAppliance, IPowerable
+    public class SmartLamp : ElectricalAppliance
     {
-
-        public bool IsOn { get; private set; }
 
         public SmartLamp(string room) : base(room)
         {
         }
-        public string PowerOff()
+        public override string ToString()
         {
-            IsOn = false;
-            return $"Smartlamp {Room} is uit";
-        }
-
-        public string PowerOn()
-        {
-            IsOn = true;
-            return $"Smartlamp {Room} is aan";
+            return $"Smartlamp {Room}";
         }
     }
 }
