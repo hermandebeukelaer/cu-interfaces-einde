@@ -21,7 +21,7 @@
         <Label x:Name="lblRadioKitchenVolume" Content="0" HorizontalAlignment="Left" Margin="322,110,0,0" VerticalAlignment="Top" Width="40" HorizontalContentAlignment="Center"/>
         <Button x:Name="btnStartAll" Content="Power ON all" HorizontalAlignment="Left" Height="34" Margin="10,171,0,0" VerticalAlignment="Top" Width="200" Click="BtnStartAll_Click"/>
         <Button x:Name="btnStopAll" Content="Power OFF all" HorizontalAlignment="Left" Height="34" Margin="221,171,0,0" VerticalAlignment="Top" Width="200" Click="BtnStopAll_Click"/>
-        <Button x:Name="btnAllVolumeUp" Content="All volume up" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="200" Click="BtnAllVolumeUpn_Click" Height="38" />
+        <Button x:Name="btnAllVolumeUp" Content="All volume up" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="200" Click="BtnAllVolumeUp_Click" Height="38" />
         <Button x:Name="btnAllVolumeDown" Content="All volumes down" HorizontalAlignment="Left" Margin="221,210,0,0" VerticalAlignment="Top" Width="200" Click="BtnAllVolumeDown_Click" Height="38" />
         <Button x:Name="btnCheckConnections" Content="Check connections" HorizontalAlignment="Left" Margin="480,171,0,0" VerticalAlignment="Top" Width="200" Click="BtnCheckConnections_Click"/>
         <ScrollViewer HorizontalAlignment="Left" Height="504" Margin="10,253,0,0" VerticalAlignment="Top" Width="772">
