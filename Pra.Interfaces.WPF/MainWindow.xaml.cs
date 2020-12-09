@@ -68,6 +68,24 @@ namespace Pra.Interfaces.WPF
             label.Background = color;
         }
 
+        private void VolumeUp(VolumeChangeableAppliance item)
+        {
+            if (item.IsOn)
+            {
+                item.VolumeUp();
+                UpdateVolumeLabel(item);
+            }
+        }
+
+        private void VolumeDown(VolumeChangeableAppliance item)
+        {
+            if (item.IsOn)
+            {
+                item.VolumeDown();
+                UpdateVolumeLabel(item);
+            }
+        }
+
         private void UpdateVolumeLabel(IVolumeChangeable item)
         {
             Label volumeLabel = item is Television ? lblTVLivingRoomVolume : lblRadioKitchenVolume;
@@ -109,38 +127,22 @@ namespace Pra.Interfaces.WPF
 
         private void BtnTVLivingRoomVolumeDown_Click(object sender, RoutedEventArgs e)
         {
-            if (tvLivingRoom.IsOn)
-            {
-                tvLivingRoom.VolumeDown();
-                lblTVLivingRoomVolume.Content = tvLivingRoom.CurrentVolume;
-            }
+            VolumeDown(tvLivingRoom);
         }
 
         private void BtnTVLivingRoomVolumeUp_Click(object sender, RoutedEventArgs e)
         {
-            if (tvLivingRoom.IsOn)
-            {
-                tvLivingRoom.VolumeUp();
-                lblTVLivingRoomVolume.Content = tvLivingRoom.CurrentVolume;
-            }
+            VolumeUp(tvLivingRoom);
         }
 
         private void BtnRadioKitchenVolumeDown_Click(object sender, RoutedEventArgs e)
         {
-            if (radioKitchen.IsOn)
-            {
-                radioKitchen.VolumeDown();
-                lblRadioKitchenVolume.Content = radioKitchen.CurrentVolume;
-            }
+            VolumeDown(radioKitchen);
         }
 
         private void BtnRadioKitchenVolumeUp_Click(object sender, RoutedEventArgs e)
         {
-            if (radioKitchen.IsOn)
-            {
-                radioKitchen.VolumeUp();
-                lblRadioKitchenVolume.Content = radioKitchen.CurrentVolume;
-            }
+            VolumeUp(radioKitchen);
         }
 
 
@@ -188,7 +190,7 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                if (powerableItem is IVolumeChangeable volumeChangeable)
+                if (powerableItem is VolumeChangeableAppliance volumeChangeable)
                 {
                     if (!powerableItem.IsOn)
                     {
@@ -198,10 +200,10 @@ namespace Pra.Interfaces.WPF
                     {
                         stringBuilder.AppendLine($"{volumeChangeable}: ");
                         stringBuilder.Append($"\tVolume was: {volumeChangeable.CurrentVolume}");
-                        volumeChangeable.VolumeUp();
-                        stringBuilder.AppendLine($"\tVolume is verhoogd tot: {volumeChangeable.CurrentVolume}");
 
-                        UpdateVolumeLabel(volumeChangeable);
+                        VolumeUp(volumeChangeable);
+                        
+                        stringBuilder.AppendLine($"\tVolume is verhoogd tot: {volumeChangeable.CurrentVolume}");
                     }
                 }
 
@@ -216,7 +218,7 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                if(powerableItem is IVolumeChangeable volumeChangeable)
+                if(powerableItem is VolumeChangeableAppliance volumeChangeable)
                 {
                     if (!powerableItem.IsOn)
                     {
@@ -226,10 +228,10 @@ namespace Pra.Interfaces.WPF
                     {
                         stringBuilder.AppendLine($"{volumeChangeable}: ");
                         stringBuilder.Append($"\tVolume was: {volumeChangeable.CurrentVolume}");
-                        volumeChangeable.VolumeDown();
-                        stringBuilder.AppendLine($"\tVolume is verlaagd tot: {volumeChangeable.CurrentVolume}");
 
-                        UpdateVolumeLabel(volumeChangeable);
+                        VolumeDown(volumeChangeable);
+
+                        stringBuilder.AppendLine($"\tVolume is verlaagd tot: {volumeChangeable.CurrentVolume}");
                     }
                 }
 
