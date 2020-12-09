@@ -33,6 +33,35 @@ namespace Pra.Interfaces.WPF
         {
             InitializeComponent();
         }
+
+        private void PowerOn(IPowerable item)
+        {
+            string text = item.PowerOn();
+            UpdatePowerLabel(item, text, Brushes.LightGreen);
+        }
+
+        private void PowerOff(IPowerable item)
+        {
+            string text = item.PowerOff();
+            UpdatePowerLabel(item, text, Brushes.Red);
+        }
+
+        private void UpdatePowerLabel(IPowerable item, string text, Brush color)
+        {
+            Label label = lblSmartLampHallway;
+            if (item is Television) label = lblTVLivingRoom;
+            if (item is Radio) label = lblRadioKitchen;
+
+            label.Content = text;
+            label.Background = color;
+        }
+
+        private void UpdateVolumeLabel(IVolumeChangeable item)
+        {
+            Label volumeLabel = item is Television ? lblTVLivingRoomVolume : lblRadioKitchenVolume;
+            volumeLabel.Content = item.CurrentVolume;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             tvLivingRoom = new Television("leefkamer");
@@ -55,13 +84,11 @@ namespace Pra.Interfaces.WPF
         {
             if (tvLivingRoom.IsOn)
             {
-                lblTVLivingRoom.Content = tvLivingRoom.PowerOff();
-                lblTVLivingRoom.Background = Brushes.Red;
+                PowerOff(tvLivingRoom);
             }
             else
             {
-                lblTVLivingRoom.Content = tvLivingRoom.PowerOn();
-                lblTVLivingRoom.Background = Brushes.LightGreen;
+                PowerOn(tvLivingRoom);
             }
         }
 
@@ -69,13 +96,11 @@ namespace Pra.Interfaces.WPF
         {
             if (lampHallway.IsOn)
             {
-                lblSmartLampHallway.Content = lampHallway.PowerOff();
-                lblSmartLampHallway.Background = Brushes.Red;
+                PowerOff(lampHallway);
             }
             else
             {
-                lblSmartLampHallway.Content = lampHallway.PowerOn();
-                lblSmartLampHallway.Background = Brushes.LightGreen;
+                PowerOn(lampHallway);
             }
         }
 
@@ -83,13 +108,11 @@ namespace Pra.Interfaces.WPF
         {
             if (radioKitchen.IsOn)
             {
-                lblRadioKitchen.Content = radioKitchen.PowerOff();
-                lblRadioKitchen.Background = Brushes.Red;
+                PowerOff(radioKitchen);
             }
             else
             {
-                lblRadioKitchen.Content = radioKitchen.PowerOn();
-                lblRadioKitchen.Background = Brushes.LightGreen;
+                PowerOn(radioKitchen);
             }
         }
 
@@ -136,23 +159,15 @@ namespace Pra.Interfaces.WPF
             StringBuilder stringBuilder = new StringBuilder();
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-
-                Label label = lblSmartLampHallway;
-                if(powerableItem is Television) label = lblTVLivingRoom;
-                if(powerableItem is Radio) label = lblRadioKitchen;
-
                 if (powerableItem.IsOn)
                 {
                     stringBuilder.Append($"{powerableItem} lag al aan en blijft aan\n");
                 }
                 else
                 {
-                    powerableItem.PowerOn();
-                    label.Content = "AAN";
-                    label.Background = Brushes.LightGreen;
+                    PowerOn(powerableItem);
                     stringBuilder.Append($"{powerableItem} werd ingeschakeld\n");
                 }
-
             }
 
             tbkFeedback.Text = stringBuilder.ToString();
@@ -164,20 +179,12 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-
-                Label label = lblSmartLampHallway;
-                if (powerableItem is Television) label = lblTVLivingRoom;
-                if (powerableItem is Radio) label = lblRadioKitchen;
-
                 if (!powerableItem.IsOn)
                     stringBuilder.Append($"{powerableItem} was reeds uitgeschakeld\n");
                 else
                 {
-                    powerableItem.PowerOff();
-                    label.Content = "UIT";
-                    label.Background = Brushes.Red;
+                    PowerOff(powerableItem);
                     stringBuilder.Append($"{powerableItem} werd uitgeschakeld\n");
-
                 }
             }
 
@@ -238,12 +245,6 @@ namespace Pra.Interfaces.WPF
             }
 
             tbkFeedback.Text = stringBuilder.ToString();
-        }
-
-        private void UpdateVolumeLabel(IVolumeChangeable item)
-        {
-            Label volumeLabel = item is Television ? lblTVLivingRoomVolume : lblRadioKitchenVolume;
-            volumeLabel.Content = item.CurrentVolume;
         }
 
         private void BtnCheckConnections_Click(object sender, RoutedEventArgs e)
