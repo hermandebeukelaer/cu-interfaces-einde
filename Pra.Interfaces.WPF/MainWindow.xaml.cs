@@ -27,7 +27,7 @@ namespace Pra.Interfaces.WPF
         Television tvLivingRoom;
         Radio radioKitchen;
         SmartLamp lampHallway;
-        List<ElectricalAppliance> electricalAppliances;
+        List<IPowerable> electricalAppliances;
 
         public MainWindow()
         {
@@ -92,7 +92,7 @@ namespace Pra.Interfaces.WPF
             radioKitchen = new Radio("keuken");
             lampHallway = new SmartLamp("gang");
 
-            electricalAppliances = new List<ElectricalAppliance>
+            electricalAppliances = new List<IPowerable>
             {
                 tvLivingRoom,
                 radioKitchen,
