@@ -68,22 +68,16 @@ namespace Pra.Interfaces.WPF
             label.Background = color;
         }
 
-        private void VolumeUp(VolumeChangeableAppliance item)
+        private void VolumeUp(IVolumeChangeable item)
         {
-            if (item.IsOn)
-            {
-                item.VolumeUp();
-                UpdateVolumeLabel(item);
-            }
+            item.VolumeUp();
+            UpdateVolumeLabel(item);            
         }
 
-        private void VolumeDown(VolumeChangeableAppliance item)
+        private void VolumeDown(IVolumeChangeable item)
         {
-            if (item.IsOn)
-            {
-                item.VolumeDown();
-                UpdateVolumeLabel(item);
-            }
+            item.VolumeDown();
+            UpdateVolumeLabel(item);
         }
 
         private void UpdateVolumeLabel(IVolumeChangeable item)
@@ -127,22 +121,34 @@ namespace Pra.Interfaces.WPF
 
         private void BtnTVLivingRoomVolumeDown_Click(object sender, RoutedEventArgs e)
         {
-            VolumeDown(tvLivingRoom);
+            if (tvLivingRoom.IsOn)
+            {
+                VolumeDown(tvLivingRoom);
+            }
         }
 
         private void BtnTVLivingRoomVolumeUp_Click(object sender, RoutedEventArgs e)
         {
-            VolumeUp(tvLivingRoom);
+            if (tvLivingRoom.IsOn)
+            {
+                VolumeUp(tvLivingRoom);
+            }
         }
 
         private void BtnRadioKitchenVolumeDown_Click(object sender, RoutedEventArgs e)
         {
-            VolumeDown(radioKitchen);
+            if (radioKitchen.IsOn)
+            {
+                VolumeDown(radioKitchen);
+            }
         }
 
         private void BtnRadioKitchenVolumeUp_Click(object sender, RoutedEventArgs e)
         {
-            VolumeUp(radioKitchen);
+            if (radioKitchen.IsOn)
+            {
+                VolumeUp(radioKitchen);
+            }
         }
 
 
@@ -190,7 +196,7 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                if (powerableItem is VolumeChangeableAppliance volumeChangeable)
+                if (powerableItem is IVolumeChangeable volumeChangeable)
                 {
                     if (!powerableItem.IsOn)
                     {
@@ -218,7 +224,7 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                if(powerableItem is VolumeChangeableAppliance volumeChangeable)
+                if(powerableItem is IVolumeChangeable volumeChangeable)
                 {
                     if (!powerableItem.IsOn)
                     {
