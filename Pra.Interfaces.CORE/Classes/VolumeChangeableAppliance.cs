@@ -5,7 +5,7 @@ using Pra.Interfaces.CORE.Interfaces;
 
 namespace Pra.Interfaces.CORE.Classes
 {
-    public class VolumeChangeableAppliance : ElectricalAppliance, IVolumeChangeable
+    public abstract class VolumeChangeableAppliance : ElectricalAppliance, IVolumeChangeable
     {
         public int CurrentVolume { get; private set; } = 50;
 
