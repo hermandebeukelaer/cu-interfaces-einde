@@ -8,11 +8,11 @@
         Title="Programming Advanced - Interfaces" Height="798" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Button x:Name="btnTVLivingRoomPower" Content="TV Woonkamer Power" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="200" Click="BtnTVLivingRoomPower_Click"/>
-        <Label x:Name="lblTVLivingRoom" Content="TV is uit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblTVLivingRoom" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
         <Button x:Name="btnSmartLampHallwayPower" Content="Lamp gang Power" HorizontalAlignment="Left" Margin="480,88,0,0" VerticalAlignment="Top" Width="200" Click="BtnSmartLampHallwayPower_Click"/>
-        <Label x:Name="lblSmartLampHallway" Content="Lamp gang is uit" HorizontalAlignment="Left" Margin="480,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblSmartLampHallway" HorizontalAlignment="Left" Margin="480,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
         <Button x:Name="btnRadioKitchenPower" Content="Radio Keuken Power" HorizontalAlignment="Left" Margin="242,88,0,0" VerticalAlignment="Top" Width="200" Click="BtnRadioKitchenPower_Click" />
-        <Label x:Name="lblRadioKitchen" Content="Radio is uit" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblRadioKitchen" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" Width="200" FontWeight="Bold" HorizontalContentAlignment="Center" Background="Red" Height="73" VerticalContentAlignment="Center"/>
         <Button x:Name="btnTVLivingRoomVolumeDown" Content="Volume down" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="80" Click="BtnTVLivingRoomVolumeDown_Click"/>
         <Button x:Name="btnTVLivingRoomVolumeUp" Content="Volume up" HorizontalAlignment="Left" Margin="130,113,0,0" VerticalAlignment="Top" Width="80" Click="BtnTVLivingRoomVolumeUp_Click"/>
         <Button x:Name="btnRadioKitchenVolumeDown" Content="Volume down" HorizontalAlignment="Left" Margin="242,113,0,0" VerticalAlignment="Top" Width="80" Click="BtnRadioKitchenVolumeDown_Click"/>

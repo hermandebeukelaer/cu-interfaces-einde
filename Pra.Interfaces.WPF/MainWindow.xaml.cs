@@ -61,34 +61,28 @@ namespace Pra.Interfaces.WPF
         private void UpdatePowerLabel(IPowerable item, string text, Brush color)
         {
             Label label = lblSmartLampHallway;
-            if (item is Television) label = lblTVLivingRoom;
-            if (item is Radio) label = lblRadioKitchen;
+            if (item == tvLivingRoom) label = lblTVLivingRoom;
+            if (item == radioKitchen) label = lblRadioKitchen;
 
             label.Content = text;
             label.Background = color;
         }
 
-        private void VolumeUp(VolumeChangeableAppliance item)
+        private void VolumeUp(IVolumeChangeable item)
         {
-            if (item.IsOn)
-            {
-                item.VolumeUp();
-                UpdateVolumeLabel(item);
-            }
+            item.VolumeUp();
+            UpdateVolumeLabel(item);            
         }
 
-        private void VolumeDown(VolumeChangeableAppliance item)
+        private void VolumeDown(IVolumeChangeable item)
         {
-            if (item.IsOn)
-            {
-                item.VolumeDown();
-                UpdateVolumeLabel(item);
-            }
+            item.VolumeDown();
+            UpdateVolumeLabel(item);
         }
 
         private void UpdateVolumeLabel(IVolumeChangeable item)
         {
-            Label volumeLabel = item is Television ? lblTVLivingRoomVolume : lblRadioKitchenVolume;
+            Label volumeLabel = item == tvLivingRoom ? lblTVLivingRoomVolume : lblRadioKitchenVolume;
             volumeLabel.Content = item.CurrentVolume;
         }
 
@@ -107,7 +101,11 @@ namespace Pra.Interfaces.WPF
 
             lblTVLivingRoomVolume.Content = tvLivingRoom.CurrentVolume;
             lblRadioKitchenVolume.Content = radioKitchen.CurrentVolume;
-            
+
+            lblTVLivingRoom.Content = tvLivingRoom.PowerOff();
+            lblRadioKitchen.Content = radioKitchen.PowerOff();
+            lblSmartLampHallway.Content = lampHallway.PowerOff();
+
         }
 
         private void BtnTVLivingRoomPower_Click(object sender, RoutedEventArgs e)
@@ -127,22 +125,34 @@ namespace Pra.Interfaces.WPF
 
         private void BtnTVLivingRoomVolumeDown_Click(object sender, RoutedEventArgs e)
         {
-            VolumeDown(tvLivingRoom);
+            if (tvLivingRoom.IsOn)
+            {
+                VolumeDown(tvLivingRoom);
+            }
         }
 
         private void BtnTVLivingRoomVolumeUp_Click(object sender, RoutedEventArgs e)
         {
-            VolumeUp(tvLivingRoom);
+            if (tvLivingRoom.IsOn)
+            {
+                VolumeUp(tvLivingRoom);
+            }
         }
 
         private void BtnRadioKitchenVolumeDown_Click(object sender, RoutedEventArgs e)
         {
-            VolumeDown(radioKitchen);
+            if (radioKitchen.IsOn)
+            {
+                VolumeDown(radioKitchen);
+            }
         }
 
         private void BtnRadioKitchenVolumeUp_Click(object sender, RoutedEventArgs e)
         {
-            VolumeUp(radioKitchen);
+            if (radioKitchen.IsOn)
+            {
+                VolumeUp(radioKitchen);
+            }
         }
 
 
