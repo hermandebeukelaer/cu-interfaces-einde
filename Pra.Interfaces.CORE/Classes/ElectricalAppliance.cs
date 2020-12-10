@@ -19,13 +19,13 @@ namespace Pra.Interfaces.CORE.Classes
         public string PowerOff()
         {
             IsOn = false;
-            return $"{this} is uit";
+            return $"{ToString()} is uit";
         }
 
         public string PowerOn()
         {
             IsOn = true;
-            return $"{this} is aan";
+            return $"{ToString()} is aan";
         }
     }
 }
