@@ -61,8 +61,8 @@ namespace Pra.Interfaces.WPF
         private void UpdatePowerLabel(IPowerable item, string text, Brush color)
         {
             Label label = lblSmartLampHallway;
-            if (item is Television) label = lblTVLivingRoom;
-            if (item is Radio) label = lblRadioKitchen;
+            if (item == tvLivingRoom) label = lblTVLivingRoom;
+            if (item == radioKitchen) label = lblRadioKitchen;
 
             label.Content = text;
             label.Background = color;
@@ -82,7 +82,7 @@ namespace Pra.Interfaces.WPF
 
         private void UpdateVolumeLabel(IVolumeChangeable item)
         {
-            Label volumeLabel = item is Television ? lblTVLivingRoomVolume : lblRadioKitchenVolume;
+            Label volumeLabel = item == tvLivingRoom ? lblTVLivingRoomVolume : lblRadioKitchenVolume;
             volumeLabel.Content = item.CurrentVolume;
         }
 
