@@ -200,7 +200,7 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                if (powerableItem is VolumeChangeableAppliance volumeChangeable)
+                if (powerableItem is IVolumeChangeable volumeChangeable)
                 {
                     if (!powerableItem.IsOn)
                     {
@@ -228,7 +228,7 @@ namespace Pra.Interfaces.WPF
 
             foreach (IPowerable powerableItem in electricalAppliances)
             {
-                if(powerableItem is VolumeChangeableAppliance volumeChangeable)
+                if(powerableItem is IVolumeChangeable volumeChangeable)
                 {
                     if (!powerableItem.IsOn)
                     {
