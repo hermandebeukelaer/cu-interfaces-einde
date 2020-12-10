@@ -101,7 +101,11 @@ namespace Pra.Interfaces.WPF
 
             lblTVLivingRoomVolume.Content = tvLivingRoom.CurrentVolume;
             lblRadioKitchenVolume.Content = radioKitchen.CurrentVolume;
-            
+
+            lblTVLivingRoom.Content = tvLivingRoom.PowerOff();
+            lblRadioKitchen.Content = radioKitchen.PowerOff();
+            lblSmartLampHallway.Content = lampHallway.PowerOff();
+
         }
 
         private void BtnTVLivingRoomPower_Click(object sender, RoutedEventArgs e)
